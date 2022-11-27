@@ -1,0 +1,52 @@
+{
+	// Use o IntelliSense para saber mais sobre os atributos possíveis.
+	// Focalizar para exibir as descrições dos atributos existentes.
+	// Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "candidates",
+			"cargo": {
+				"args": [
+					"build",
+					"--bin=synthetic-data-generator",
+					"--package=synthetic-data-generator"
+				],
+				"filter": {
+					"name": "synthetic-data-generator",
+					"kind": "bin"
+				}
+			},
+			"args": [
+				"--schema-path", "resources/candidates.yaml",
+				"--output-path", "output/candidates.json",
+				"--sample-size", "1000000"
+			],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "roles",
+			"cargo": {
+				"args": [
+					"build",
+					"--bin=synthetic-data-generator",
+					"--package=synthetic-data-generator"
+				],
+				"filter": {
+					"name": "synthetic-data-generator",
+					"kind": "bin"
+				}
+			},
+			"args": [
+				"--schema-path", "resources/roles.yaml",
+				"--output-path", "output/roles.json",
+				"--sample-size", "1000000"
+			],
+			"cwd": "${workspaceFolder}"
+		}
+	]
+}
